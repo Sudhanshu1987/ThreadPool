@@ -21,7 +21,10 @@ namespace Multithreading.BlockingQueue
 
         public bool Enqueue(int item)
         {
-            return false;
+            if(++this.Head == this.Tail)
+            {
+
+            }
         }
 
         public int Dequeue()
