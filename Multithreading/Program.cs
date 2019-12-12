@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Multithreading.BlockingQueue;
+using System;
+using System.Runtime.InteropServices;
 
 namespace Multithreading
 {
@@ -6,7 +8,8 @@ namespace Multithreading
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BlockingQueueTest test = new BlockingQueueTest();
+            test.TestBlockingQueue();
         }
     }
 }
