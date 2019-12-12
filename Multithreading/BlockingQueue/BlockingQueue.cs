@@ -13,7 +13,7 @@ namespace Multithreading.BlockingQueue
         private int Tail;
         private int CurrentSize;
         private Object _lock;
-        
+
         public BlockingQueue(int capacity)
         {
             this.MaxSize = capacity;
@@ -28,17 +28,17 @@ namespace Multithreading.BlockingQueue
         {
             lock (this._lock)
             {
-                while(this.CurrentSize == this.MaxSize)
+                while (this.CurrentSize == this.MaxSize)
                 {
                     Monitor.Wait(_lock);
                 }
 
-                if(this.Head == -1 && this.Tail == -1)
+                if (this.Head == -1 && this.Tail == -1)
                 {
                     this.Head = 0;
                     this.Tail = 0;
                 }
-                else if(this.Tail == this.MaxSize - 1)
+                else if (this.Tail == this.MaxSize - 1)
                 {
                     this.Tail = 0;
                 }
@@ -54,13 +54,12 @@ namespace Multithreading.BlockingQueue
                 Monitor.PulseAll(this._lock);
             }
         }
-
         public int Dequeue()
         {
             int itemDequeued;
             lock (this._lock)
             {
-                while(this.CurrentSize == 0)
+                while (this.CurrentSize == 0)
                 {
                     Monitor.Wait(this._lock);
                 }
