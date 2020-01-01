@@ -1,8 +1,9 @@
 ﻿using Multithreading.BlockingQueue;
+using Multithreading.DefferedAction;
 using Multithreading.Semaphore;
 using System;
 using System.Runtime.InteropServices;
-
+using System.Threading;
 
 namespace Multithreading
 {
@@ -12,14 +13,24 @@ namespace Multithreading
         {
             //BlockingQueueTest test = new BlockingQueueTest();
             //test.TestBlockingQueue();
-            /*TestDecrementSemaphore test = new TestDecrementSemaphore();
-            for(int i = 0; i < 25; i++)
-            {
-                test.Decrement();
-            } */
+            
+            TestDecrementSemaphore test = new TestDecrementSemaphore();
 
-            TokenBucketFilterTest t = new TokenBucketFilterTest();
-            t.FetchTokenFiltersInThread();
+            test.DecrementCounter();
+
+            Thread.Sleep(3000);
+
+            test.IncrementCounter();
+
+            //TokenBucketFilterTest t = new TokenBucketFilterTest();
+            //t.FetchTokenFiltersInThread();
+
+            //DefferedAct d = new DefferedAct();
+            //d.TestAddAction();
+            /* int[] a = { 1, 2 };
+             int[] b = { 3, 4 };
+             Solution s = new Solution();
+             s.FindMedianSortedArrays(a, b);*/
         }
     }
 }

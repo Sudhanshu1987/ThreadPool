@@ -47,17 +47,17 @@ namespace Multithreading
         private TokenBucketFilter t = new TokenBucketFilter(10000);
         public void TestTokenBucketFilter(int i)
         {
-            t.GetToken(i);
+            while (true) { t.GetToken(i); }            
         }
         
         public void FetchTokenFiltersInThread()
         {
-            var tasks = new Task[100];
+            var tasks = new Task[5];
             Action<int> a = TestTokenBucketFilter;
 
             Thread.Sleep(100000);
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 5; i++)
             {
                 tasks[i] = Task.Run(() => {
                     a(i);

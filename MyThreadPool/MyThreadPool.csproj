@@ -37,6 +37,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IThreadPool.cs" />
     <Compile Include="MyThreadPoolExample.cs" />
+    <Compile Include="Solution.cs" />
     <Compile Include="ThreadPool.cs" />
     <Compile Include="ThreadPoolExample.cs" />
   </ItemGroup>
